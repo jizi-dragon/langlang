@@ -15,5 +15,5 @@
 ## 技术约定
 
 - 依赖管理：`uv` + `pyproject.toml` + `uv.lock`（锁文件在容器内针对 Python 3.11 生成）。
-- 环境：`Dockerfile` 镜像 `langchain-lab:3.11`；运行脚本 `run.ps1` / `rebuild.ps1`。
+- 环境：`Dockerfile` 镜像 `langchain-lab:3.11`；运行脚本 `dev.ps1` / `rebuild.ps1`。
 - 密钥：和风天气强制使用账号专属 API Host，Host 与 Key 同属敏感认证信息，均只存 `.env`。

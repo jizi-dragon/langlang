@@ -16,7 +16,7 @@ langchain-lab/
 ├── .env                # 你的密钥（不入库，含 Git 忽略的敏感信息）
 ├── .gitignore
 ├── .dockerignore
-├── run.ps1             # 运行脚本
+├── dev.ps1             # 快捷进入常驻容器（不存在则自动创建）
 ├── rebuild.ps1         # 重建镜像
 └── examples/
     ├── test_01/        # 第 1 章：打造你的第一个 Agent
@@ -49,18 +49,31 @@ Copy-Item .env.example .env
 
 > 和风天气 2026 年起强制使用账号专属 API Host，Host 与 Key 均属敏感认证信息，只写进 `.env`，切勿提交。
 
-### 3. 运行
+### 3. 运行（常驻容器）
 
-运行第 1 章示例（真实调用 DeepSeek 与和风天气）：
+一条命令进入常驻容器 shell（容器 `langlab` 不存在会自动创建，并挂载当前目录为 `/workspace`）：
 
 ```powershell
-.\run.ps1 examples/test_01/agent.py
+.\dev.ps1
 ```
 
-进入交互式 Python（便于逐步学习、试验图结构）：
+进入容器后即为常规终端，直接使用 `python` 运行脚本：
+
+```bash
+python examples/test_01/agent.py
+```
+
+不想进 shell、只想快速跑一次脚本：
 
 ```powershell
-.\run.ps1
+.\dev.ps1 examples/test_01/agent.py
+```
+
+常驻容器用完后可手动停止 / 删除（下次 `.\dev.ps1` 会自动重建）：
+
+```powershell
+docker stop langlab
+docker rm langlab
 ```
 
 ## 两台电脑的一致性保证
