@@ -10,24 +10,15 @@ langchain-lab/
 ├── pyproject.toml      # 依赖声明（版本区间）
 ├── uv.lock             # 锁定精确版本（跨机一致性关键）
 ├── .env.example        # 环境变量模板（复制为 .env 使用）
-├── .env                # 你的 API Key（不入库）
+├── .env                # 你的密钥（不入库，含 Git 忽略的敏感信息）
 ├── .gitignore
 ├── .dockerignore
 ├── run.ps1             # 运行脚本
 ├── rebuild.ps1         # 重建镜像
 └── examples/
-    ├── smoke_test.py          # 离线冒烟测试（无需 Key）
-    ├── demo.py                # langchain-openai 调用示例（需 Key）
-    └── test_01/               # 第一章节：首个 Tool-calling Agent
-        ├── qweather.py                # 和风天气 QWeather 真实天气工具
-        └── 04_first_agent.py          # 首个 Agent（@tool + create_agent）
+    ├── test_01/        # 第 1 章：打造你的第一个 Agent
+    └── 学习日志.md      # 各章节学习的沉淀记录
 ```
-
-## 章节目录
-
-| 目录 | 内容 | 运行 |
-| ---- | ---- | ---- |
-| `examples/test_01` | 首个 Tool-calling Agent，真实调用 QWeather 天气 | `.\run.ps1 examples/test_01/04_first_agent.py` |
 
 ## 职责边界（务必理解）
 
@@ -49,21 +40,18 @@ langchain-lab/
 Copy-Item .env.example .env
 ```
 
-编辑 `.env`，填入你的 OpenAI 兼容服务商信息（DeepSeek / 通义 / Kimi 等均适用）。
-用到真实天气（`examples/test_01`）时，另在 https://dev.qweather.com 免费注册，把 key 填入 `QWEATHER_API_KEY`。
+编辑 `.env`，填入服务商信息：
+- `DEEPSEEK_API_KEY`：本项目模型固定为 `deepseek-v4-flash`，填入对应的 DeepSeek 密钥。
+- `QWEATHER_API_HOST` / `QWEATHER_API_KEY`：和风天气账号专属 Host（控制台-设置查看）与 Key。
+
+> 和风天气 2026 年起强制使用账号专属 API Host，Host 与 Key 均属敏感认证信息，只写进 `.env`，切勿提交。
 
 ### 3. 运行
 
-离线验证依赖装到位：
+运行第 1 章示例（真实调用 DeepSeek 与和风天气）：
 
 ```powershell
-.\run.ps1 examples/smoke_test.py
-```
-
-调用真实 LLM：
-
-```powershell
-.\run.ps1 examples/demo.py
+.\run.ps1 examples/test_01/agent.py
 ```
 
 进入交互式 Python（便于逐步学习、试验图结构）：
@@ -82,7 +70,7 @@ Copy-Item .env.example .env
 
 由 `uv.lock` 锁定（首次生成时的主要版本）：
 
-- langchain / langchain-core / langchain-openai
+- langchain / langchain-core / langchain-openai / langchain-deepseek
 - langgraph / langgraph-checkpoint-sqlite / langgraph-cli / langgraph-prebuilt / langgraph-sdk
 - langsmith（可观测性）、python-dotenv
 
