@@ -1,0 +1,12 @@
+# 环境变量与密钥
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 运行时数据（SQLite checkpoint 等）
+*.db
+*.sqlite3
+data/

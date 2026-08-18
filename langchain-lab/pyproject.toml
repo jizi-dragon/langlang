@@ -1,0 +1,17 @@
+[project]
+name = "langchain-lab"
+version = "0.1.0"
+description = "LangChain / LangGraph 学习环境（Python 3.11，OpenAI 兼容云 API）"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "langchain>=1.0,<2.0",
+    "langchain-openai>=1.0,<2.0",
+    "langgraph>=1.2,<2.0",
+    "langgraph-checkpoint-sqlite>=2.0,<3.0",
+    "langgraph-cli>=0.1",
+    "langsmith>=0.4",
+    "python-dotenv>=1.0",
+]
+
+[tool.uv]
+package = false
