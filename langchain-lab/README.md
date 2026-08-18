@@ -2,11 +2,14 @@
 
 面向 LangChain / LangGraph 学习的 Docker 开发环境（**Python 3.11**，单镜像），用于在**多台电脑间保持环境一致**。
 
+> 本仓库的项目级管理规则见 [RULES.md](RULES.md)，开发本仓库前请先阅读。
+
 ## 目录结构
 
 ```
 langchain-lab/
 ├── Dockerfile          # 镜像定义（uv + python3.11-slim）
+├── RULES.md            # 项目级管理规则（开发前必读）
 ├── pyproject.toml      # 依赖声明（版本区间）
 ├── uv.lock             # 锁定精确版本（跨机一致性关键）
 ├── .env.example        # 环境变量模板（复制为 .env 使用）
