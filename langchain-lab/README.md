@@ -16,9 +16,18 @@ langchain-lab/
 ├── run.ps1             # 运行脚本
 ├── rebuild.ps1         # 重建镜像
 └── examples/
-    ├── smoke_test.py   # 离线冒烟测试（无需 Key）
-    └── demo.py         # langchain-openai 调用示例（需 Key）
+    ├── smoke_test.py          # 离线冒烟测试（无需 Key）
+    ├── demo.py                # langchain-openai 调用示例（需 Key）
+    └── test_01/               # 第一章节：首个 Tool-calling Agent
+        ├── qweather.py                # 和风天气 QWeather 真实天气工具
+        └── 04_first_agent.py          # 首个 Agent（@tool + create_agent）
 ```
+
+## 章节目录
+
+| 目录 | 内容 | 运行 |
+| ---- | ---- | ---- |
+| `examples/test_01` | 首个 Tool-calling Agent，真实调用 QWeather 天气 | `.\run.ps1 examples/test_01/04_first_agent.py` |
 
 ## 职责边界（务必理解）
 
@@ -41,6 +50,7 @@ Copy-Item .env.example .env
 ```
 
 编辑 `.env`，填入你的 OpenAI 兼容服务商信息（DeepSeek / 通义 / Kimi 等均适用）。
+用到真实天气（`examples/test_01`）时，另在 https://dev.qweather.com 免费注册，把 key 填入 `QWEATHER_API_KEY`。
 
 ### 3. 运行
 
