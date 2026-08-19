@@ -20,6 +20,8 @@ langchain-lab/
 ├── rebuild.ps1         # 重建镜像
 └── examples/
     ├── test_01/        # 第 1 章：打造你的第一个 Agent
+    ├── test_02/        # 第 2 章：Chat Model 常规/高级用法（bind_tools/结构化输出）
+    ├── test_03/        # 第 3 章：工具高级特性（args_schema/异常处理/return_direct）
     └── 学习日志.md      # 各章节学习的沉淀记录
 ```
 
