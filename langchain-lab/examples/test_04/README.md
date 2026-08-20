@@ -66,9 +66,9 @@ Agent 处理一条消息，本质是状态机。每一步往 `state["messages"]`
 ```powershell
 cd langchain-lab
 # 先确保 Docker 启着
-.\dev.ps1 examples/test_4/01_injected_store_sqlite.py   # 数据库持久化 + 跨会话写入
-.\dev.ps1 examples/test_4/02_injected_state.py          # 会话内状态读取
-.\dev.ps1 examples/test_4/03_injected_tool_arg.py       # 通用注入标记
+.\dev.ps1 examples/test_04/01_injected_store_sqlite.py   # 数据库持久化 + 跨会话写入
+.\dev.ps1 examples/test_04/02_injected_state.py          # 会话内状态读取
+.\dev.ps1 examples/test_04/03_injected_tool_arg.py       # 通用注入标记
 ```
 
 ## 对 runoob 笔记的关键修正与工程坑

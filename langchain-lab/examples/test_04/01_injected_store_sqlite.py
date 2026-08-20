@@ -19,7 +19,7 @@ from langchain.tools import InjectedStore, tool
 from langgraph.store.base import BaseStore
 from langgraph.store.sqlite import SqliteStore
 
-DB_PATH = "test_4/business.db"
+DB_PATH = "test_04/business.db"
 
 
 def build_store(db_path: str = DB_PATH) -> SqliteStore:

@@ -18,3 +18,7 @@ data/
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# 学习用 runoob 抓取文件（不入库）
+runoob_scraper.py
+runoob_langchain_tutorial/
