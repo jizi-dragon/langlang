@@ -23,6 +23,7 @@ langchain-lab/
     ├── test_02/        # 第 2 章：Chat Model 常规/高级用法（bind_tools/结构化输出）
     ├── test_03/        # 第 3 章：工具高级特性（args_schema/异常处理/return_direct）
     ├── test_04/        # 第 4 章：工具访问（InjectedState/InjectedStore/SQLite持久化）
+    ├── test_05/        # 第 5 章：Agent 状态管理（AgentState扩展/stream_mode/jump_to/结构化输出）
     └── 学习日志.md      # 各章节学习的沉淀记录
 ```
 
