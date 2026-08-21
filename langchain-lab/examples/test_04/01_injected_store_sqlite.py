@@ -8,8 +8,8 @@
 否则会和 SqliteStore 内部的显式事务冲突，报 cannot start a transaction within a transaction。
 """
 
-import json
 import sqlite3
+from pathlib import Path
 from typing import Annotated
 
 from langchain.agents import create_agent
@@ -19,7 +19,8 @@ from langchain.tools import InjectedStore, tool
 from langgraph.store.base import BaseStore
 from langgraph.store.sqlite import SqliteStore
 
-DB_PATH = "test_04/business.db"
+# 与脚本同目录，避免因运行目录不同而打不开数据库文件（unable to open database file）
+DB_PATH = str(Path(__file__).resolve().parent / "business.db")
 
 
 def build_store(db_path: str = DB_PATH) -> SqliteStore:
